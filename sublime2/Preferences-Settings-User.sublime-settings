@@ -1,0 +1,14 @@
+{
+	"caret_style": "phase",
+	"find_selected_text": true,
+	"font_size": 9,
+	"highlight_active_indent_guide": true,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"trim_trailing_white_space_on_save": true,
+	"wide_caret": true
+}
+
