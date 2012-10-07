@@ -9,7 +9,7 @@ h2. Base Packages
 
 * apt-get install aptitude
 * aptitude install vim screen htop bash-completion
-* aptitude install chromium-browser opera firefox ksshaskpass
+* aptitude install chromium-browser opera firefox ksshaskpass deborphan
 * aptitude install gimp inkscape
 
 
@@ -31,6 +31,8 @@ h2. KDE Config
 * Konsole Hotkeys (Settings => Configure Shortcuts)
 ** "New Window": clear shortcut with empty custom shortcut
 ** "New Tab": use Ctrl-Shift-N
+
+* Set Scrollback to 99999
 
 * ssh-add
 ** copy scripts/add-all-ssh-keys.sh to ~/.kde/Autostart
