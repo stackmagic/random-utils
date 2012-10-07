@@ -1,4 +1,42 @@
-linux setup
-===========
 
+h1. Linux Setup (Debian/Kubuntu)
+
+Some linux setup hints since I'm in the process of setting up another system right now
+
+*TODO* make this less of a documentation and pour it into a script that automates as much as possible
+
+h2. Base Packages
+
+* apt-get install aptitude
+* aptitude install vim screen htop bash-completion
+* aptitude install chromium-browser opera firefox
+* aptitude install gimp inkscape
+
+
+h2. Shell Config
+
+* ~/.bashrc (for all users + skel)
+
+** HISTSIZE=10000
+** HISTFILESIZE=20000
+** uncomment force_color_prompt=yes
+** edit alias for "l" to: alias l='ls -lah --color=auto'
+** enable bash-completion by uncommenting the corresponding if statement
+
+* /etc/inputrc
+** uncomment entry for history-search-backward
+** uncomment entry for history-search-forward
+
+h2. KDE Config
+
+* Konsole Hotkeys (Settings => Configure Shortcuts)
+** "New Window": clear shortcut with empty custom shortcut
+** "New Tab": use Ctrl-Shift-N
+
+h2. Software Dev Setup
+
+* aptitude install openjdk-7-jdk openjdk-7-jre-lib openjdk-7-source
+* aptitude install golang
+* aptitude install virtualbox virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt
+* Maven/Scala use Phil's tooling: https://github.com/PhiCode/scripts
 
