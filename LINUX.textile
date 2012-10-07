@@ -16,7 +16,6 @@ h2. Base Packages
 h2. Shell Config
 
 * ~/.bashrc (for all users + skel)
-
 ** HISTSIZE=10000
 ** HISTFILESIZE=20000
 ** uncomment force_color_prompt=yes
