@@ -1,9 +1,66 @@
 
-h1. Eclipse Setup
+h1. Eclipse Plugins
 
-h2. Plugins
+h2. Testing
+
+h2. Languages
+
+h3. Geppetto (Puppet)
+
+* "Homepage":https://github.com/cloudsmith/geppetto
+* "Update Site":http://download.cloudsmith.com/geppetto/updates
+
+h3. GoClipse
+
+* "Homepage":http://code.google.com/p/goclipse/
+* "Update Site":http://goclipse.googlecode.com/svn/trunk/goclipse-update-site/
+
+h3. Scala IDE
+
+* "Homepage":http://scala-ide.org/
+* "Update Site":http://download.scala-ide.org/releases-29/stable/site
 
 h3. TestNG
 
 * "Homepage":http://www.testng.org
 * "Update Site":http://beust.com/eclipse
+
+h3. EclEmma
+
+* "Homepage":http://eclemma.org
+* "Update Site":http://update.eclemma.org
+
+h2. Code Quality
+
+h3. CheckStyle
+
+* "Homepage":http://checkstyle.sourceforge.net/
+* "Update Site":http://eclipse-cs.sourceforge.net/update
+
+h3. UCDetector
+
+* "Homepage":http://www.ucdetector.org/
+* "Update Site":http://ucdetector.sourceforge.net/update
+
+h3. FindBugs
+
+* "Homepage":http://findbugs.sourceforge.net/
+* "Update Site":http://findbugs.cs.umd.edu/eclipse
+
+h3. PMD
+
+* "Homepage":http://pmd.sf.net
+* "Update Site":http://pmd.sf.net/eclipse
+
+h2. Version Control
+
+h3. Subversive
+
+* "Homepage":http://www.eclipse.org/subversive
+* "Update Site":http://download.eclipse.org/releases/juno (Juno Site, Expand "Collaboration", "Subversive SVN Team Provider")
+
+h3. Mercurial
+
+* "Homepage":http://cbes.javaforge.com
+* "Update Site":http://cbes.javaforge.com/update
+

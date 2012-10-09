@@ -10,7 +10,7 @@ h2. Base Packages
 * apt-get install aptitude
 * aptitude install vim screen htop bash-completion
 * aptitude install chromium-browser opera firefox ksshaskpass deborphan
-* aptitude install gimp inkscape
+* aptitude install gimp inkscape git subversion
 
 
 h2. Shell Config
