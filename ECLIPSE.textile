@@ -5,5 +5,5 @@ h2. Plugins
 
 h3. TestNG
 
-* "Homepage"(http://www.testng.org)
-* "Update Site"(http://beust.com/eclipse)
+* "Homepage":http://www.testng.org
+* "Update Site":http://beust.com/eclipse
