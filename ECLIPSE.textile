@@ -3,6 +3,16 @@ h1. Eclipse Plugins
 
 h2. Testing
 
+h3. TestNG
+
+* "Homepage":http://www.testng.org
+* "Update Site":http://beust.com/eclipse
+
+h3. EclEmma
+
+* "Homepage":http://eclemma.org
+* "Update Site":http://update.eclemma.org
+
 h2. Languages
 
 h3. Geppetto (Puppet)
@@ -19,16 +29,6 @@ h3. Scala IDE
 
 * "Homepage":http://scala-ide.org/
 * "Update Site":http://download.scala-ide.org/releases-29/stable/site
-
-h3. TestNG
-
-* "Homepage":http://www.testng.org
-* "Update Site":http://beust.com/eclipse
-
-h3. EclEmma
-
-* "Homepage":http://eclemma.org
-* "Update Site":http://update.eclemma.org
 
 h2. Code Quality
 
