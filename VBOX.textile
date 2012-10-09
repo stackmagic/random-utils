@@ -1,0 +1,25 @@
+
+*TODO* this is just a scratchpad for now, gotta run!
+
+h1. Virtual Box on Windows to access Linux drive
+
+* Install VirtualBox
+* open cmd.exe as administrator
+** wmic diskdrive list brief => this will list all drives and their internal names
+** wmic partition list brief => this will list all the partitions with their indexes
+** cd C:\Program Files\Oracle\VirtualBox
+** VBoxSVC /ReregServer
+** VBoxManage internalcommands listpartitions -rawdisk \\.\PHYSICALDRIVE0
+** VBoxManage internalcommands createrawvmdk -filename c:\physical-drive-0.vmdk -rawdisk \\.\PHYSICALDRIVE0
+** After that you'll need to run VirtualBox as administrator in order to access and use that disk
+** From here on, you can use that vmdk (which represents the entire disk) and
+*** access data in a vm
+*** boot from it, in fact I'm now writing this on linux, which is running as a guest on my windows, all off the physical disk, yay =)
+
+h2. a note on VirtualBox COM Errors
+
+p. It is not entirely clear why my system was acting up but I got a COM error when using the commands below. Some where in the docs, something similar is mentioned (https://www.virtualbox.org/manual/ch12.html#idp19310160), however no real solution. Since I've started VBoxSVC and VBoxWebSrv just for fun I'm not sure what to do if you run into the same problem. I did run servies.msc, started everything COM related and also killed VBoxSVC and then suddenly it worked. Stopping the COM Servives didn't seem to make a difference from that point on. YMMV.
+
+p. Update: Ok when running the VirtualBox gui as admin I got this same COM error too, which was fixed by starting all COM Services again. So best make sure they're running. It might also be that locking problem mentioned in the docs, who knows?
+
+
