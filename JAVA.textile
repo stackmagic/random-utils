@@ -1,0 +1,10 @@
+
+h1. Java
+
+p. Install java using the package manager. It's possible to have multiple JVMs/JDKs installed at the same time, they're managed by the "alternatives" mechanism.
+
+p. Add the following to /etc/bash.bashrc to set the JAVA_HOME to the System's JVM
+
+bc..
+JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+
