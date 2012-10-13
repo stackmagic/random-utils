@@ -5,9 +5,9 @@ p. Install java using the package manager. It's possible to have multiple JVMs/J
 
 p. Add the following to /etc/bash.bashrc to set the JAVA_HOME to the System's JRE
 
-bc..  JAVA_HOME="$(readlink -f "$(which java)" | sed "s#bin/java##")"
+bc..  export JAVA_HOME="$(readlink -f "$(which java)" | sed "s#bin/java##")"
 
 p. Add the following to /etc/bash.bashrc to set the JAVA_HOME to the System's JDK
 
-bc..  JAVA_HOME="$(readlink -f "$(which javac)" | sed "s#bin/javac##")"
+bc..  export JAVA_HOME="$(readlink -f "$(which javac)" | sed "s#bin/javac##")"
 
