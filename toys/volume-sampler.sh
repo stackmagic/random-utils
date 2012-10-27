@@ -20,15 +20,37 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# this script iterates over all your ssh keys and adds them to your ssh-agent.
-# normally, you would put this file into ~/.kde/Autostart and right after login
-# you'll be asked to enter the key's passwords.
+# sample the volume over a period of time, then calculate the mean of the
+# values.
 
-export SSH_ASKPASS=/usr/bin/ksshaskpass
+dur=5
+if [ -n "$1" ]; then
+	dur=$1
+fi
 
-for identity in `find ${HOME}/.ssh/ -type f -name "id_*" | grep -v ".pub"`; do
-	if [ "`ssh-add -l | cut -d" " -f3 | grep $identity`" == "" ]; then
-		ssh-add $identity
-	fi
-done
+LANG="en_US.UTF-8"
+
+# copied and adapted from here:
+# http://forums.whirlpool.net.au/archive/1853993
+function sample() {
+	arecord -c2 -d${dur} -fS16_LE /dev/null -vvv 2>&1 | grep --line-buffered "Max peak" | awk -W interactive '{print $7}' | cut -d% -f1 | paste -sd " "
+}
+
+# copied and adapted from here:
+# http://www.onli-blogging.de/index.php?/1083/Statistik-mit-Bash.html
+function calc_mean() {
+	sum=0
+	n="$#"
+
+	while [[ "$#" -gt 0 ]];do
+		value="$1"
+		sum=$(echo "$sum + $value" | bc -l)
+		shift
+	done
+	echo "$sum / $n" | bc -l
+}
+
+vals=$(sample)
+mean=$(calc_mean $vals)
+echo "${mean}"
 
