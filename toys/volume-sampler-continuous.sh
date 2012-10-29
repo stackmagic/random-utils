@@ -20,38 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# sample the volume over a period of time, then calculate the mean of the
-# values.
+# continuously sample the volume and send to graphite
 
 dur=5
 if [ -n "$1" ]; then
 	dur=$1
 fi
 
-# set language so we can grep for "Max peak" below
-LANG="C"
-
-# copied and adapted from here:
-# http://forums.whirlpool.net.au/archive/1853993
-function sample() {
-	arecord -c2 -d${dur} -fS16_LE /dev/null -vvv 2>&1 | grep --line-buffered "Max peak" | awk -W interactive '{print $7}' | cut -d% -f1 | paste -sd " "
-}
-
-# copied and adapted from here:
-# http://www.onli-blogging.de/index.php?/1083/Statistik-mit-Bash.html
-function calc_mean() {
-	sum=0
-	n="$#"
-
-	while [[ "$#" -gt 0 ]];do
-		value="$1"
-		sum=$(echo "$sum + $value" | bc -l)
-		shift
-	done
-	echo "$sum / $n" | bc -l
-}
-
-vals=$(sample)
-mean=$(calc_mean $vals)
-echo "${mean}"
+while ((1)); do
+	vol=$(./volume-sampler.sh $dur)
+	./volume-sampler-graphite.py 0 $dur $vol
+done
 
