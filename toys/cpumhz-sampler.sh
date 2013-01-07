@@ -20,16 +20,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# continuously sample the volume and send to graphite
+# sample the volume over a period of time, then calculate the mean of the
+# values.
 
-dur=5
-if [ -n "$1" ]; then
-	dur=$1
-fi
+function sample() {
+	cat /proc/cpuinfo | grep "cpu MHz" | cut -d ":" -f2 | paste -sd " "
+}
 
-while ((1)); do
-	vol=$(./volume-sampler.sh $dur)
-	cpumhz=$(./cpumhz-sampler.sh)
-	./volume-sampler-graphite.py 0 $dur $vol $cpumhz
-done
+# copied and adapted from here:
+# http://www.onli-blogging.de/index.php?/1083/Statistik-mit-Bash.html
+function calc_mean() {
+	sum=0
+	n="$#"
+
+	while [[ "$#" -gt 0 ]];do
+		value="$1"
+		sum=$(echo "$sum + $value" | bc -l)
+		shift
+	done
+	echo "$sum / $n" | bc -l
+}
+
+vals=$(sample)
+mean=$(calc_mean $vals)
+echo "${mean}"
 

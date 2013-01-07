@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 """Copyright 2008 Orbitz WorldWide
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,10 +38,6 @@ volume = 0
 if len(sys.argv) > 3:
   volume = sys.argv[3]
 
-cpumhz = 0
-if len(sys.argv) > 4:
-  cpumhz = sys.argv[4]
-
 def get_loadavg():
   # For more details, "man proc" and "man uptime"
   if platform.system() == "Linux":
@@ -63,16 +60,15 @@ except:
 now = int( time.time() )
 loadavg = get_loadavg()
 lines = []
-lines.append("poatest.poly-dev-nb-005.loadavg_1min %s %d" % (loadavg[0],now))
-lines.append("poatest.poly-dev-nb-005.loadavg_5min %s %d" % (loadavg[1],now))
-lines.append("poatest.poly-dev-nb-005.loadavg_15min %s %d" % (loadavg[2],now))
-lines.append("poatest.poly-dev-nb-005.office-volume_%ds %s %d" % (volLen, volume, now))
-lines.append("poatest.poly-dev-nb-005.cpumhz %s %d" % (cpumhz, now))
+maximum = 50000
+for i in range(1, maximum):
+	val = i
+	time = now - 1000 * (maximum - i)
+	lines.append("ladder.test1 %d %d" % (val, time))
+
 message = '\n'.join(lines) + '\n' #all lines must end in a newline
 print "sending message\n"
 print '-' * 80
 print message
 print
 sock.sendall(message)
-
-
