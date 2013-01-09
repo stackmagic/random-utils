@@ -1,0 +1,15 @@
+
+set input-meta              on
+set output-meta             on
+set show-all-if-ambiguous   on
+set completion-ignore-case  on
+set completion-map-case     on
+set page-completions        off
+set bell-style              none
+set echo-control-characters off
+set expand-tilde            off
+
+"\e[1;5C": forward-word            # Ctrl+right
+"\e[1;5D": backward-word           # Ctrl+left
+"\e[5~":   history-search-backward # PageUp
+"\e[6~":   history-search-forward  # PageDown
