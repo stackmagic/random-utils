@@ -1,6 +1,6 @@
 [user]
-	name = Patrick Huber
-	email = stackmagic@gmail.com
+	name = name
+	email = name@example.com
 [core]
 	editor = vim
 [color]
