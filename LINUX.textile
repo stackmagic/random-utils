@@ -1,4 +1,3 @@
-
 h1. Linux Setup (Debian/Kubuntu)
 
 Some linux setup hints since I'm in the process of setting up another system right now
@@ -14,6 +13,9 @@ h2. Base Packages
 
 
 h2. Shell Config
+
+* /etc/vimrc
+** uncomment syntax on
 
 * ~/.bashrc (for all users + skel)
 ** HISTSIZE=10000
