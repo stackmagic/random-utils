@@ -17,7 +17,7 @@ h2. Shell Config
 * /etc/vimrc
 ** uncomment syntax on
 
-* ~/.bashrc (for all users + skel)
+* ~/.bashrc (for all users + skel) and /etc/bash.bashrc
 ** HISTSIZE=10000
 ** HISTFILESIZE=20000
 ** uncomment force_color_prompt=yes
