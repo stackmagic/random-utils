@@ -1,6 +1,9 @@
+# directly apply to a system like this:
+# curl https://raw.github.com/stackmagic/random-utils/master/config-files/dot-gitconfig | sed "s/YOUR_NAME/ your name here /" | sed "s/YOUR_EMAIL/ your email here /" >> ~/.gitconfig
+
 [user]
-	name = name
-	email = name@example.com
+	name = YOUR_NAME
+	email = YOUR_EMAIL
 [core]
 	editor = vim
 [color]
