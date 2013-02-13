@@ -22,12 +22,12 @@
 
 # this script iterates over all your ssh keys and adds them to your ssh-agent.
 # normally, you would put this file into ~/.kde/Autostart and right after login
-# you'll be asked to enter the key's passwords.
+# you'll be asked to enter the keys' passwords.
 
 export SSH_ASKPASS=/usr/bin/ksshaskpass
 
-for identity in `find ${HOME}/.ssh/ -type f -name "id_*" | grep -v ".pub"`; do
-	if [ "`ssh-add -l | cut -d" " -f3 | grep $identity`" == "" ]; then
+for identity in $(find ${HOME}/.ssh/ -type f -name "id_*" | grep -v ".pub"); do
+	if [ "$(ssh-add -l | cut -d" " -f3 | grep $identity)" == "" ]; then
 		ssh-add $identity
 	fi
 done
