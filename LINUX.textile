@@ -20,6 +20,7 @@ h2. Shell Config
 * ~/.bashrc (for all users + skel) and /etc/bash.bashrc
 ** HISTSIZE=10000
 ** HISTFILESIZE=20000
+** HISTCONTROL=ignoreboth:ignoredups:erasedups
 ** uncomment force_color_prompt=yes
 ** edit alias for "l" to: alias l='ls -lah --color=auto'
 ** enable bash-completion by uncommenting the corresponding if statement
