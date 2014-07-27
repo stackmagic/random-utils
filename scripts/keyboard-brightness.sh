@@ -29,31 +29,43 @@
 # create a ~/.xbindkeyrc that maps the up/down keys to calling this script. in
 # my case the file looks like this:
 #
-# "keyboard-brightness.sh down"
+# "sudo /home/<YOUR_USER>/bin/keyboard-brightness.sh down"
 #     m:0x0 + c:237
 #     XF86KbdBrightnessDown
 #
-# "keyboard-brightness.sh up"
+# "sudo /home/<YOUR_USER>/bin/keyboard-brightness.sh up"
 #     m:0x0 + c:238
 #     XF86KbdBrightnessUp
 #
+# and add this to your sudoers file, assuming you're in the sudo group
+#
+# %sudo   ALL=NOPASSWD: /home/<YOUR_USER>/bin/keyboard-brightness.sh
+#
 
-ledFile=/sys/class/leds/asus::kbd_backlight/brightness
+ledFile="/sys/class/leds/asus::kbd_backlight/brightness"
 
 getBrightness () {
 	cat ${ledFile}
 }
 
 setBrightness () {
-	[ "${1}" -gt "-1" ] && [ "${1}" -lt 4 ] && echo "${1}" | sudo tee ${ledFile}
+	echo "new brightness: ${1}"
+	echo "${1}" > ${ledFile}
 }
 
-case "${1}" in
-	up)
-		setBrightness $(( $(getBrightness) + 1 ))
-	;;
-	down)
-		setBrightness $(( $(getBrightness) - 1 ))
-	;;
-esac
+if [ -z "${1}" ]; then
+	getBrightness
+else
+	case "${1}" in
+		up)
+			setBrightness $(( $(getBrightness) + 1 ))
+		;;
+		down)
+			setBrightness $(( $(getBrightness) - 1 ))
+		;;
+		*)
+			setBrightness ${1}
+		;;
+	esac
+fi
 
