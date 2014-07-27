@@ -1,0 +1,20 @@
+{
+	"always_show_minimap_viewport": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/User/Colorsublime/themes/textmate.tmTheme",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"font_size": 10,
+	"highlight_active_indent_guide": true,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"shift_tab_unindent": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"trim_trailing_white_space_on_save": true,
+	"wide_caret": true,
+	"wrap_width": 999999
+}
