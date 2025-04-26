@@ -1,4 +1,6 @@
 
+small util to do some cpu temperature testing
+
 # Requirements
 
 ```shell
