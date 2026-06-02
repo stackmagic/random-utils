@@ -15,3 +15,22 @@
 	st = status -s -b
 	co = checkout
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[pull]
+        ff = only
+[push]
+        default = simple
+        autoSetupRemote = true
+[init]
+        defaultBranch = master
+[merge]
+        renamelimit = 999999
+[rebase]
+        autosquash = true
+[grep]
+        lineNumber = true
+[rerere]
+        enabled = true
+[diff]
+        renamelimit = 999999
+[diff "hex"]
+        textconv = hexdump -v -C
