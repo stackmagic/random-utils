@@ -1,0 +1,7 @@
+
+# add this to your ~/.bashrc and put customizations into ~/.bashrc.d/bashrc.*
+
+# load extra user-specific bashrc settings
+for userrc in $(ls -1 ~/.bashrc.d/bashrc.* 2>/dev/null); do
+  source $userrc
+done

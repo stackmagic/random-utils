@@ -1,0 +1,6 @@
+
+alias l='ls -lah'
+alias ll='ls -l'
+alias la='ls -A'
+
+alias agu='aptitude update && aptitude safe-upgrade'

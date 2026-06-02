@@ -1,0 +1,15 @@
+
+# this requires some of the fancy git commands in .gitconfig
+
+alias gl="git lg --color=always | head -n $(($(tput lines) - 10))"
+alias gd="git diff"
+alias gs="git st"
+
+alias less="less -RS"
+
+function git-init {
+    local ignore_patterns=( ".*" "bin" "build" "target" "node_modules" )
+    git init
+    printf "%s\n" "${ignore_patterns[@]}" > .gitignore
+    git add -f .gitignore
+}
